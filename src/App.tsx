@@ -206,6 +206,12 @@ const QazaqAirApp = () => {
               <a href="#" className="hover:text-blue-200 transition-colors">О нас</a>
               <a href="#" className="hover:text-blue-200 transition-colors">Контакты</a>
             </nav>
+            {/* Mobile menu button */}
+            <button className="md:hidden text-white p-2">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
         </header>
 
@@ -220,16 +226,16 @@ const QazaqAirApp = () => {
                 transition: 'all 0.8s ease-out 0.3s'
               }}
             >
-              <h2 className="text-5xl font-bold text-white mb-4">
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
                 Откройте мир с <span className="text-blue-300">Qazaq Air</span>
               </h2>
-              <p className="text-xl text-blue-200">
+              <p className="text-lg md:text-xl text-blue-200 px-4">
                 Комфортные перелеты по Казахстану и за его пределами
               </p>
             </div>
 
             {/* Search Form */}
-            <div className="bg-white rounded-xl shadow-lg p-8"
+            <div className="bg-white rounded-xl shadow-lg p-4 md:p-8"
               style={{
                 opacity: isAnimated ? 1 : 0,
                 transform: `translateY(${isAnimated ? 0 : 40}px)`,
@@ -237,7 +243,7 @@ const QazaqAirApp = () => {
               }}
             >
               {/* Trip Type Toggle */}
-              <div className="flex space-x-4 mb-6">
+              <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 mb-6">
                 <button
                   onClick={() => setSearchData(prev => ({ ...prev, tripType: 'oneWay' }))}
                   className={`px-4 py-2 rounded-xl font-medium transition-all ${
@@ -261,9 +267,9 @@ const QazaqAirApp = () => {
               </div>
 
               {/* Search Fields */}
-              <div className="flex flex-wrap items-end gap-4 mb-6">
+              <div className="flex flex-col lg:flex-row lg:flex-wrap lg:items-end gap-4 mb-6">
                 {/* From */}
-                <div className="flex-1 min-w-[150px]">
+                <div className="flex-1 w-full lg:min-w-[150px]">
                   <label className="block text-sm font-medium text-gray-700 mb-2">Откуда</label>
                   <div className="relative">
                     <MapPin className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -280,17 +286,17 @@ const QazaqAirApp = () => {
                 </div>
 
                 {/* Swap Button */}
-                <div className="flex items-center justify-center pb-3">
+                <div className="flex items-center justify-center lg:pb-3">
                   <button
                     onClick={swapCities}
                     className="p-2 rounded-full bg-blue-50 hover:bg-blue-100 transition-colors group"
                   >
-                    <ArrowRight className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
+                    <ArrowRight className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform lg:rotate-0 rotate-90" />
                   </button>
                 </div>
 
                 {/* To */}
-                <div className="flex-1 min-w-[150px]">
+                <div className="flex-1 w-full lg:min-w-[150px]">
                   <label className="block text-sm font-medium text-gray-700 mb-2">Куда</label>
                   <div className="relative">
                     <MapPin className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -307,7 +313,7 @@ const QazaqAirApp = () => {
                 </div>
 
                 {/* Departure Date */}
-                <div className="flex-1 min-w-[150px]">
+                <div className="flex-1 w-full lg:min-w-[150px]">
                   <label className="block text-sm font-medium text-gray-700 mb-2">Дата вылета</label>
                   <div className="relative">
                     <Calendar className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -323,7 +329,7 @@ const QazaqAirApp = () => {
 
                 {/* Return Date - only show for round trip */}
                 {searchData.tripType === 'roundTrip' && (
-                  <div className="flex-1 min-w-[150px]">
+                  <div className="flex-1 w-full lg:min-w-[150px]">
                     <label className="block text-sm font-medium text-gray-700 mb-2">Дата возвращения</label>
                     <div className="relative">
                       <Calendar className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -339,7 +345,7 @@ const QazaqAirApp = () => {
                 )}
 
                 {/* Passengers */}
-                <div className="flex-1 min-w-[120px] max-w-[180px]">
+                <div className="flex-1 w-full lg:min-w-[120px] lg:max-w-[180px]">
                   <label className="block text-sm font-medium text-gray-700 mb-2">Пассажиры</label>
                   <div className="relative">
                     <Users className="absolute left-3 top-3 w-5 h-5 text-gray-400" />
@@ -356,11 +362,11 @@ const QazaqAirApp = () => {
                 </div>
 
                 {/* Search Button */}
-                <div className="flex-shrink-0">
+                <div className="w-full lg:flex-shrink-0">
                   <button
                     onClick={handleSearch}
                     disabled={!searchData.from || !searchData.to || !searchData.departure}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] mt-8"
+                    className="w-full lg:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] mt-4 lg:mt-8"
                   >
                     Поиск рейсов
                   </button>
@@ -421,107 +427,166 @@ const QazaqAirApp = () => {
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
         <div className="bg-white shadow-md">
-          <div className="max-w-6xl mx-auto px-6 py-4">
-            <div className="flex items-center justify-between">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-3 sm:space-y-0">
               <button
                 onClick={() => setCurrentStep('search')}
-                className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors"
+                className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors self-start"
               >
                 <ArrowLeft className="w-5 h-5" />
-                <span>Назад к поиску</span>
+                <span className="text-sm sm:text-base">Назад к поиску</span>
               </button>
-              <div className="text-center">
-                <h1 className="text-xl font-bold text-gray-800">
+              <div className="text-center sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2">
+                <h1 className="text-lg sm:text-xl font-bold text-gray-800">
                   {searchData.from} → {searchData.to}
                 </h1>
-                <p className="text-sm text-gray-600">
+                <p className="text-xs sm:text-sm text-gray-600">
                   {new Date(searchData.departure).toLocaleDateString('ru-RU', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
+                    weekday: 'short',
+                    month: 'short',
                     day: 'numeric'
                   })} • {searchData.passengers} пассажир{searchData.passengers > 1 ? 'а' : ''}
                 </p>
               </div>
-              <div className="w-24"></div>
             </div>
           </div>
         </div>
 
         {/* Flight Results */}
-        <div className="max-w-6xl mx-auto px-6 py-8">
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold text-gray-800 mb-2">Доступные рейсы</h2>
-            <p className="text-gray-600">Найдено {mockFlights.length} рейсов</p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+          <div className="mb-4 sm:mb-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-y-0 mb-3">
+              <div>
+                <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Доступные рейсы</h2>
+                <p className="text-sm sm:text-base text-gray-600">Найдено {mockFlights.length} рейсов</p>
+              </div>
+              
+              {/* Mobile Sort Options */}
+              <div className="flex space-x-2 sm:hidden">
+                <button className="flex items-center space-x-1 px-3 py-2 bg-gray-100 rounded-lg text-sm">
+                  <span>Цена</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+                  </svg>
+                </button>
+                <button className="flex items-center space-x-1 px-3 py-2 bg-gray-100 rounded-lg text-sm">
+                  <span>Время</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6l4 2" />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {mockFlights.map((flight, index) => (
               <div
                 key={flight.id}
-                className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300"
+                className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 active:scale-[0.98] sm:active:scale-100 cursor-pointer sm:cursor-default"
                 style={{
                   opacity: animatedFlights[index] ? 1 : 0,
                   transform: `translateY(${animatedFlights[index] ? 0 : 30}px)`,
                   transition: `all 0.5s ease-out ${index * 0.1}s`
                 }}
+                onClick={(e) => {
+                  if (window.innerWidth < 640 && !e.target.closest('button')) {
+                    if (navigator.vibrate) {
+                      navigator.vibrate(30);
+                    }
+                    selectFlight(flight);
+                  }
+                }}
               >
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                   <div className="flex items-center justify-between">
                     {/* Flight Info */}
                     <div className="flex-1">
-                      <div className="flex items-center space-x-4 mb-4">
-                        <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                          <Plane className="w-6 h-6 text-white" />
+                      {/* Mobile-first layout - airline info and price in header */}
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 rounded-full flex items-center justify-center">
+                            <Plane className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-sm sm:text-base font-semibold text-gray-800">{flight.airline}</h3>
+                            <p className="text-xs sm:text-sm text-gray-600">{flight.flightNumber} • {flight.aircraft}</p>
+                          </div>
                         </div>
-                        <div>
-                          <h3 className="font-semibold text-gray-800">{flight.airline}</h3>
-                          <p className="text-sm text-gray-600">{flight.flightNumber} • {flight.aircraft}</p>
+                        {/* Mobile price display */}
+                        <div className="text-right sm:hidden">
+                          <div className="text-xl font-bold text-blue-600">
+                            ₸{flight.price.toLocaleString()}
+                          </div>
+                          <div className="text-xs text-gray-500">
+                            {flight.seats} мест
+                          </div>
                         </div>
                       </div>
 
-                      <div className="flex items-center space-x-8">
-                        {/* Departure */}
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-gray-800">{flight.departure.time}</div>
-                          <div className="text-sm text-gray-600">{flight.departure.code}</div>
-                          <div className="text-sm text-gray-500">{flight.departure.city}</div>
-                        </div>
+                      {/* Flight times - optimized mobile layout */}
+                      <div className="bg-gray-50 rounded-lg p-3 mb-3">
+                        <div className="flex items-center justify-between">
+                          {/* Departure */}
+                          <div className="text-left flex-1">
+                            <div className="text-lg sm:text-2xl font-bold text-gray-800">{flight.departure.time}</div>
+                            <div className="text-xs sm:text-sm text-gray-600">{flight.departure.code}</div>
+                            <div className="text-xs sm:text-sm text-gray-500 truncate">{flight.departure.city}</div>
+                          </div>
 
-                        {/* Duration */}
-                        <div className="flex-1 relative">
-                          <div className="flex items-center justify-center">
-                            <div className="w-full h-0.5 bg-gray-300 relative">
-                              <div className="absolute right-0 w-2 h-2 bg-gray-300 rounded-full transform translate-x-1"></div>
+                          {/* Duration - mobile optimized */}
+                          <div className="flex-1 px-4">
+                            <div className="flex items-center justify-center">
+                              <div className="w-full h-0.5 bg-gray-300 relative">
+                                <div className="absolute right-0 w-2 h-2 bg-blue-500 rounded-full transform translate-x-1"></div>
+                              </div>
+                            </div>
+                            <div className="text-center mt-1">
+                              <div className="text-xs sm:text-sm text-gray-600 font-medium">{flight.duration}</div>
+                              <div className="text-xs text-gray-500">Прямой</div>
                             </div>
                           </div>
-                          <div className="text-center mt-1">
-                            <div className="text-sm text-gray-600">{flight.duration}</div>
-                            <div className="text-xs text-gray-500">Прямой</div>
-                          </div>
-                        </div>
 
-                        {/* Arrival */}
-                        <div className="text-center">
-                          <div className="text-2xl font-bold text-gray-800">{flight.arrival.time}</div>
-                          <div className="text-sm text-gray-600">{flight.arrival.code}</div>
-                          <div className="text-sm text-gray-500">{flight.arrival.city}</div>
+                          {/* Arrival */}
+                          <div className="text-right flex-1">
+                            <div className="text-lg sm:text-2xl font-bold text-gray-800">{flight.arrival.time}</div>
+                            <div className="text-xs sm:text-sm text-gray-600">{flight.arrival.code}</div>
+                            <div className="text-xs sm:text-sm text-gray-500 truncate">{flight.arrival.city}</div>
+                          </div>
                         </div>
                       </div>
 
-                      {/* Amenities */}
-                      <div className="flex items-center space-x-4 mt-4">
+                      {/* Amenities - mobile optimized */}
+                      <div className="flex flex-wrap items-center gap-2 mb-4">
                         {flight.amenities.map((amenity, idx) => (
-                          <div key={idx} className="flex items-center space-x-1 text-gray-500">
+                          <div key={idx} className="flex items-center space-x-1 text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
                             <AmenityIcon type={amenity} />
-                            <span className="text-xs capitalize">{amenity}</span>
+                            <span className="text-xs capitalize">{amenity === 'wifi' ? 'Wi-Fi' : amenity === 'food' ? 'Питание' : amenity === 'entertainment' ? 'Развлечения' : amenity === 'priority' ? 'Приоритет' : amenity}</span>
                           </div>
                         ))}
                       </div>
+                      
+                      {/* Mobile book button - enhanced */}
+                      <div className="sm:hidden">
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            // Haptic feedback simulation
+                            if (navigator.vibrate) {
+                              navigator.vibrate(50);
+                            }
+                            selectFlight(flight);
+                          }}
+                          className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl active:scale-[0.98] flex items-center justify-center space-x-2 touch-manipulation"
+                        >
+                          <span>Выбрать рейс</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+                      </div>
                     </div>
 
-                    {/* Price & Book */}
-                    <div className="text-center ml-6">
+                    {/* Price & Book - Desktop */}
+                    <div className="hidden sm:block text-center ml-6">
                       <div className="text-3xl font-bold text-gray-800 mb-1">
                         ₸{flight.price.toLocaleString()}
                       </div>
@@ -531,7 +596,7 @@ const QazaqAirApp = () => {
                       </div>
                       <button
                         onClick={() => selectFlight(flight)}
-                        className="bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors hover:shadow-lg hover:scale-105 active:scale-95"
+                        className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
                       >
                         Выбрать
                       </button>
@@ -569,69 +634,88 @@ const QazaqAirApp = () => {
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
         <div className="bg-white shadow-md">
-          <div className="max-w-4xl mx-auto px-6 py-4">
-            <div className="flex items-center justify-between">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-3 sm:space-y-0">
               <button
                 onClick={() => setCurrentStep('flights')}
-                className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors"
+                className="flex items-center space-x-2 text-gray-600 hover:text-gray-800 transition-colors self-start"
               >
                 <ArrowLeft className="w-5 h-5" />
-                <span>Назад к рейсам</span>
+                <span className="text-sm sm:text-base">Назад к рейсам</span>
               </button>
-              <h1 className="text-xl font-bold text-gray-800">Информация о пассажирах</h1>
-              <div className="w-24"></div>
+              <h1 className="text-lg sm:text-xl font-bold text-gray-800 sm:absolute sm:left-1/2 sm:transform sm:-translate-x-1/2">Информация о пассажирах</h1>
             </div>
           </div>
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 py-8">
-          {/* Flight Summary */}
-          <div className="bg-white rounded-xl shadow-md p-6 mb-8">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4">Выбранный рейс</h3>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-6">
-                <div className="text-center">
-                  <div className="text-xl font-bold text-gray-800">{selectedFlight?.departure.time}</div>
-                  <div className="text-sm text-gray-600">{selectedFlight?.departure.city}</div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+          {/* Flight Summary - Mobile Optimized */}
+          <div className="bg-white rounded-xl shadow-md p-4 sm:p-6 mb-6 sm:mb-8">
+            <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4">Выбранный рейс</h3>
+            
+            {/* Mobile-first layout */}
+            <div className="space-y-4">
+              {/* Flight route and times */}
+              <div className="flex items-center justify-between">
+                <div className="text-left flex-1">
+                  <div className="text-lg sm:text-xl font-bold text-gray-800">{selectedFlight?.departure.time}</div>
+                  <div className="text-xs sm:text-sm text-gray-600">{selectedFlight?.departure.city}</div>
                 </div>
-                <ArrowRight className="w-5 h-5 text-gray-400" />
-                <div className="text-center">
-                  <div className="text-xl font-bold text-gray-800">{selectedFlight?.arrival.time}</div>
-                  <div className="text-sm text-gray-600">{selectedFlight?.arrival.city}</div>
+                <div className="flex-1 px-4">
+                  <div className="flex items-center justify-center">
+                    <div className="w-full h-0.5 bg-gray-300 relative">
+                      <div className="absolute right-0 w-2 h-2 bg-blue-500 rounded-full transform translate-x-1"></div>
+                    </div>
+                  </div>
+                  <div className="text-center mt-1">
+                    <div className="text-xs text-gray-500">{selectedFlight?.duration}</div>
+                  </div>
                 </div>
-                <div className="text-center ml-6">
-                  <div className="text-sm text-gray-600">{selectedFlight?.flightNumber}</div>
-                  <div className="text-sm text-gray-500">{selectedFlight?.duration}</div>
+                <div className="text-right flex-1">
+                  <div className="text-lg sm:text-xl font-bold text-gray-800">{selectedFlight?.arrival.time}</div>
+                  <div className="text-xs sm:text-sm text-gray-600">{selectedFlight?.arrival.city}</div>
                 </div>
               </div>
-              <div className="text-right">
-                <div className="text-2xl font-bold text-gray-800">
-                  ₸{((selectedFlight?.price || 0) * searchData.passengers).toLocaleString()}
+              
+              {/* Flight details and price */}
+              <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                <div>
+                  <div className="text-sm font-medium text-gray-800">{selectedFlight?.flightNumber}</div>
+                  <div className="text-xs text-gray-500">{searchData.passengers} пассажир{searchData.passengers > 1 ? 'а' : ''}</div>
                 </div>
-                <div className="text-sm text-gray-600">
-                  {searchData.passengers} пассажир{searchData.passengers > 1 ? 'а' : ''}
+                <div className="text-right">
+                  <div className="text-xl sm:text-2xl font-bold text-blue-600">
+                    ₸{((selectedFlight?.price || 0) * searchData.passengers).toLocaleString()}
+                  </div>
+                  <div className="text-xs text-gray-500">Итого</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Passenger Forms */}
-          <div className="space-y-6">
+          {/* Passenger Forms - Mobile Optimized */}
+          <div className="space-y-4 sm:space-y-6">
             {passengerData.map((passenger) => (
-              <div key={passenger.id} className="bg-white rounded-xl shadow-md p-6">
-                <h4 className="text-lg font-semibold text-gray-800 mb-4">
-                  Пассажир {passenger.id}
-                  {passenger.id === 1 && <span className="text-sm text-blue-600 ml-2">(Основной контакт)</span>}
-                </h4>
+              <div key={passenger.id} className="bg-white rounded-xl shadow-md p-4 sm:p-6">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-800">
+                    Пассажир {passenger.id}
+                  </h4>
+                  {passenger.id === 1 && (
+                    <span className="text-xs sm:text-sm text-blue-600 bg-blue-50 px-2 py-1 rounded-full mt-1 sm:mt-0 self-start sm:self-center">
+                      Основной контакт
+                    </span>
+                  )}
+                </div>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-4 sm:space-y-0">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Имя *</label>
                     <input
                       type="text"
                       value={passenger.firstName}
                       onChange={(e) => updatePassenger(passenger.id, 'firstName', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
                       placeholder="Введите имя"
                     />
                   </div>
@@ -641,7 +725,7 @@ const QazaqAirApp = () => {
                       type="text"
                       value={passenger.lastName}
                       onChange={(e) => updatePassenger(passenger.id, 'lastName', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
                       placeholder="Введите фамилию"
                     />
                   </div>
@@ -654,8 +738,9 @@ const QazaqAirApp = () => {
                           type="email"
                           value={passenger.email}
                           onChange={(e) => updatePassenger(passenger.id, 'email', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
                           placeholder="example@mail.com"
+                          autoComplete="email"
                         />
                       </div>
                       <div>
@@ -664,8 +749,9 @@ const QazaqAirApp = () => {
                           type="tel"
                           value={passenger.phone}
                           onChange={(e) => updatePassenger(passenger.id, 'phone', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
                           placeholder="+7 (777) 123-45-67"
+                          autoComplete="tel"
                         />
                       </div>
                     </>
@@ -675,12 +761,17 @@ const QazaqAirApp = () => {
             ))}
           </div>
 
-          {/* Continue Button */}
-          <div className="mt-8">
+          {/* Continue Button - Mobile Optimized */}
+          <div className="mt-6 sm:mt-8 sticky bottom-0 sm:static bg-gray-50 sm:bg-transparent pt-4 sm:pt-0 -mx-4 sm:mx-0 px-4 sm:px-0 pb-4 sm:pb-0">
             <button
-              onClick={proceedToPayment}
+              onClick={(e) => {
+                if (navigator.vibrate) {
+                  navigator.vibrate(50);
+                }
+                proceedToPayment();
+              }}
               disabled={!isValid}
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-xl font-semibold text-base sm:text-lg hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] touch-manipulation shadow-lg"
             >
               Перейти к оплате
             </button>
@@ -804,13 +895,13 @@ const QazaqAirApp = () => {
         </div>
 
         <div className="max-w-4xl mx-auto px-6 py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             {/* Payment Form */}
             <div className="lg:col-span-2 space-y-6">
               {/* Express Checkout Options */}
               <div className="bg-white rounded-xl shadow-md p-6">
                 <h3 className="text-lg font-semibold text-gray-800 mb-4">Быстрая оплата</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                   <button
                     onClick={() => processPayment()}
                     className="w-full bg-black text-white py-4 px-6 rounded-xl font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center space-x-3"
@@ -931,7 +1022,7 @@ const QazaqAirApp = () => {
                             className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           />
                         </div>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                           <div>
                             <label className="block text-sm font-medium text-gray-700 mb-2">Срок действия</label>
                             <input
