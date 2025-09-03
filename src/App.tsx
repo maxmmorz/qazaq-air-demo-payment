@@ -229,7 +229,7 @@ const QazaqAirApp = () => {
             </div>
 
             {/* Search Form */}
-            <div className="bg-white rounded-2xl shadow-2xl p-8"
+            <div className="bg-white rounded-xl shadow-lg p-8"
               style={{
                 opacity: isAnimated ? 1 : 0,
                 transform: `translateY(${isAnimated ? 0 : 40}px)`,
@@ -240,7 +240,7 @@ const QazaqAirApp = () => {
               <div className="flex space-x-4 mb-6">
                 <button
                   onClick={() => setSearchData(prev => ({ ...prev, tripType: 'oneWay' }))}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                  className={`px-4 py-2 rounded-xl font-medium transition-all ${
                     searchData.tripType === 'oneWay'
                       ? 'bg-blue-600 text-white shadow-lg'
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -250,7 +250,7 @@ const QazaqAirApp = () => {
                 </button>
                 <button
                   onClick={() => setSearchData(prev => ({ ...prev, tripType: 'roundTrip' }))}
-                  className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                  className={`px-4 py-2 rounded-xl font-medium transition-all ${
                     searchData.tripType === 'roundTrip'
                       ? 'bg-blue-600 text-white shadow-lg'
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -270,7 +270,7 @@ const QazaqAirApp = () => {
                     <select
                       value={searchData.from}
                       onChange={(e) => setSearchData(prev => ({ ...prev, from: e.target.value }))}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 h-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     >
                       {cities.map(city => (
                         <option key={city} value={city}>{city}</option>
@@ -297,7 +297,7 @@ const QazaqAirApp = () => {
                     <select
                       value={searchData.to}
                       onChange={(e) => setSearchData(prev => ({ ...prev, to: e.target.value }))}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 h-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     >
                       {cities.filter(city => city !== searchData.from).map(city => (
                         <option key={city} value={city}>{city}</option>
@@ -316,7 +316,7 @@ const QazaqAirApp = () => {
                       value={searchData.departure}
                       onChange={(e) => setSearchData(prev => ({ ...prev, departure: e.target.value }))}
                       min={new Date().toISOString().split('T')[0]}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 h-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     />
                   </div>
                 </div>
@@ -332,7 +332,7 @@ const QazaqAirApp = () => {
                         value={searchData.return}
                         onChange={(e) => setSearchData(prev => ({ ...prev, return: e.target.value }))}
                         min={searchData.departure || new Date().toISOString().split('T')[0]}
-                        className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-3 h-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     </div>
                   </div>
@@ -346,7 +346,7 @@ const QazaqAirApp = () => {
                     <select
                       value={searchData.passengers}
                       onChange={(e) => setSearchData(prev => ({ ...prev, passengers: parseInt(e.target.value) }))}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 h-12 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                     >
                       {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
                         <option key={num} value={num}>{num} {num === 1 ? 'пассажир' : 'пассажира'}</option>
@@ -360,7 +360,7 @@ const QazaqAirApp = () => {
                   <button
                     onClick={handleSearch}
                     disabled={!searchData.from || !searchData.to || !searchData.departure}
-                    className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] mt-8"
+                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] mt-8"
                   >
                     Поиск рейсов
                   </button>
@@ -420,7 +420,7 @@ const QazaqAirApp = () => {
     return (
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
-        <div className="bg-white shadow-sm">
+        <div className="bg-white shadow-md">
           <div className="max-w-6xl mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
               <button
@@ -531,7 +531,7 @@ const QazaqAirApp = () => {
                       </div>
                       <button
                         onClick={() => selectFlight(flight)}
-                        className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors hover:shadow-lg hover:scale-105 active:scale-95"
+                        className="bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors hover:shadow-lg hover:scale-105 active:scale-95"
                       >
                         Выбрать
                       </button>
@@ -568,7 +568,7 @@ const QazaqAirApp = () => {
     return (
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
-        <div className="bg-white shadow-sm">
+        <div className="bg-white shadow-md">
           <div className="max-w-4xl mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
               <button
@@ -631,7 +631,7 @@ const QazaqAirApp = () => {
                       type="text"
                       value={passenger.firstName}
                       onChange={(e) => updatePassenger(passenger.id, 'firstName', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Введите имя"
                     />
                   </div>
@@ -641,7 +641,7 @@ const QazaqAirApp = () => {
                       type="text"
                       value={passenger.lastName}
                       onChange={(e) => updatePassenger(passenger.id, 'lastName', e.target.value)}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       placeholder="Введите фамилию"
                     />
                   </div>
@@ -654,7 +654,7 @@ const QazaqAirApp = () => {
                           type="email"
                           value={passenger.email}
                           onChange={(e) => updatePassenger(passenger.id, 'email', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           placeholder="example@mail.com"
                         />
                       </div>
@@ -664,7 +664,7 @@ const QazaqAirApp = () => {
                           type="tel"
                           value={passenger.phone}
                           onChange={(e) => updatePassenger(passenger.id, 'phone', e.target.value)}
-                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           placeholder="+7 (777) 123-45-67"
                         />
                       </div>
@@ -680,7 +680,7 @@ const QazaqAirApp = () => {
             <button
               onClick={proceedToPayment}
               disabled={!isValid}
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
             >
               Перейти к оплате
             </button>
@@ -757,7 +757,7 @@ const QazaqAirApp = () => {
               Ваш билет на рейс {selectedFlight?.flightNumber} забронирован. 
               Информация отправлена на указанный email.
             </p>
-            <div className="bg-gray-50 rounded-lg p-4 mb-6">
+            <div className="bg-gray-50 rounded-xl p-4 mb-6">
               <div className="text-sm text-gray-600 space-y-1">
                 <p><strong>Рейс:</strong> {selectedFlight?.flightNumber}</p>
                 <p><strong>Маршрут:</strong> {searchData.from} → {searchData.to}</p>
@@ -775,7 +775,7 @@ const QazaqAirApp = () => {
                 setPassengerData([]);
                 setSearchData(prev => ({ ...prev, departure: '', return: '' }));
               }}
-              className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
             >
               Забронировать еще билет
             </button>
@@ -787,7 +787,7 @@ const QazaqAirApp = () => {
     return (
       <div className="min-h-screen bg-gray-50">
         {/* Header */}
-        <div className="bg-white shadow-sm">
+        <div className="bg-white shadow-md">
           <div className="max-w-4xl mx-auto px-6 py-4">
             <div className="flex items-center justify-between">
               <button
@@ -813,26 +813,26 @@ const QazaqAirApp = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                   <button
                     onClick={() => processPayment()}
-                    className="w-full bg-black text-white py-4 px-6 rounded-lg font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center space-x-3"
+                    className="w-full bg-black text-white py-4 px-6 rounded-xl font-semibold hover:bg-gray-800 transition-colors flex items-center justify-center space-x-3"
                   >
                     <ApplePayLogo />
                   </button>
                   <button
                     onClick={() => processPayment()}
-                    className="w-full bg-gray-700 text-white py-4 px-6 rounded-lg font-semibold hover:bg-gray-600 transition-colors flex items-center justify-center space-x-3"
+                    className="w-full bg-gray-700 text-white py-4 px-6 rounded-xl font-semibold hover:bg-gray-600 transition-colors flex items-center justify-center space-x-3"
                   >
                     <GooglePayLogo />
                   </button>
                   <button
                     onClick={() => processPayment()}
-                    className="w-full bg-red-500 text-white py-4 px-6 rounded-lg font-semibold hover:bg-red-600 transition-colors flex items-center justify-center space-x-2"
+                    className="w-full bg-red-500 text-white py-4 px-6 rounded-xl font-semibold hover:bg-red-600 transition-colors flex items-center justify-center space-x-2"
                   >
                     <KaspiLogo />
                     <span className="text-sm">Kaspi</span>
                   </button>
                   <button
                     onClick={() => processPayment()}
-                    className="w-full bg-green-600 text-white py-4 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center space-x-2"
+                    className="w-full bg-green-600 text-white py-4 px-6 rounded-xl font-semibold hover:bg-green-700 transition-colors flex items-center justify-center space-x-2"
                   >
                     <HalykLogo />
                     <span className="text-sm">Halyk</span>
@@ -869,7 +869,7 @@ const QazaqAirApp = () => {
                           setSelectedSavedCard(card.id);
                           setShowNewCardForm(false);
                         }}
-                        className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                        className={`p-4 border-2 rounded-xl cursor-pointer transition-all ${
                           selectedSavedCard === card.id
                             ? 'border-blue-500 bg-blue-50'
                             : 'border-gray-200 hover:border-gray-300'
@@ -902,7 +902,7 @@ const QazaqAirApp = () => {
                         setShowNewCardForm(true);
                         setSelectedSavedCard(null);
                       }}
-                      className={`p-4 border-2 border-dashed rounded-lg cursor-pointer transition-all ${
+                      className={`p-4 border-2 border-dashed rounded-xl cursor-pointer transition-all ${
                         showNewCardForm
                           ? 'border-blue-500 bg-blue-50'
                           : 'border-gray-300 hover:border-gray-400'
@@ -928,7 +928,7 @@ const QazaqAirApp = () => {
                             onChange={(e) => handleCardInput('number', e.target.value)}
                             placeholder="1234 5678 9012 3456"
                             maxLength={19}
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           />
                         </div>
                         <div className="grid grid-cols-2 gap-4">
@@ -940,7 +940,7 @@ const QazaqAirApp = () => {
                               onChange={(e) => handleCardInput('expiry', e.target.value)}
                               placeholder="MM/YY"
                               maxLength={5}
-                              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                           </div>
                           <div>
@@ -951,7 +951,7 @@ const QazaqAirApp = () => {
                               onChange={(e) => handleCardInput('cvv', e.target.value)}
                               placeholder="123"
                               maxLength={3}
-                              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                             />
                           </div>
                         </div>
@@ -962,7 +962,7 @@ const QazaqAirApp = () => {
                             value={cardData.name}
                             onChange={(e) => handleCardInput('name', e.target.value)}
                             placeholder="IVAN PETROV"
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                           />
                         </div>
                       </div>
@@ -1039,7 +1039,7 @@ const QazaqAirApp = () => {
                 <button
                   onClick={processPayment}
                   disabled={isProcessing || (!selectedSavedCard && (!showNewCardForm || !cardData.number || !cardData.expiry || !cardData.cvv || !cardData.name))}
-                  className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 rounded-lg font-semibold text-lg hover:from-green-700 hover:to-green-800 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 rounded-xl font-semibold text-lg hover:from-green-700 hover:to-green-800 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
                 >
                   {isProcessing ? (
                     <div className="flex items-center justify-center">
