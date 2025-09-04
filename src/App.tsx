@@ -175,7 +175,7 @@ const QazaqAirApp = () => {
     };
 
     return (
-      <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900">
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
         {/* Header */}
         <header className="relative z-10 px-6 py-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -186,28 +186,28 @@ const QazaqAirApp = () => {
                 transition: 'all 0.6s ease-out'
               }}
             >
-              <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-                <Plane className="w-6 h-6 text-blue-600 transform rotate-45" />
+              <div className="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                <Plane className="w-6 h-6 text-white transform rotate-45" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-white">Qazaq Air</h1>
-                <p className="text-blue-200 text-sm">Летайте с комфортом</p>
+                <h1 className="text-2xl font-bold text-gray-800">Qazaq Air</h1>
+                <p className="text-gray-600 text-sm">Летайте с комфортом</p>
               </div>
             </div>
-            <nav className="hidden md:flex space-x-8 text-white"
+            <nav className="hidden md:flex space-x-8 text-gray-800"
               style={{
                 opacity: isAnimated ? 1 : 0,
                 transform: `translateY(${isAnimated ? 0 : -20}px)`,
                 transition: 'all 0.6s ease-out 0.2s'
               }}
             >
-              <a href="#" className="hover:text-blue-200 transition-colors">Рейсы</a>
-              <a href="#" className="hover:text-blue-200 transition-colors">Чек-ин</a>
-              <a href="#" className="hover:text-blue-200 transition-colors">О нас</a>
-              <a href="#" className="hover:text-blue-200 transition-colors">Контакты</a>
+              <a href="#" className="hover:text-blue-600 transition-colors">Рейсы</a>
+              <a href="#" className="hover:text-blue-600 transition-colors">Чек-ин</a>
+              <a href="#" className="hover:text-blue-600 transition-colors">О нас</a>
+              <a href="#" className="hover:text-blue-600 transition-colors">Контакты</a>
             </nav>
             {/* Mobile menu button */}
-            <button className="md:hidden text-white p-2">
+            <button className="md:hidden text-gray-800 p-2">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
@@ -226,10 +226,10 @@ const QazaqAirApp = () => {
                 transition: 'all 0.8s ease-out 0.3s'
               }}
             >
-              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-                Откройте мир с <span className="text-blue-300">Qazaq Air</span>
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">
+                Откройте мир с <span className="text-blue-600">Qazaq Air</span>
               </h2>
-              <p className="text-lg md:text-xl text-blue-200 px-4">
+              <p className="text-lg md:text-xl text-gray-600 px-4">
                 Комфортные перелеты по Казахстану и за его пределами
               </p>
             </div>
