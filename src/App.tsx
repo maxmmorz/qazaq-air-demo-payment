@@ -366,7 +366,7 @@ const QazaqAirApp = () => {
                   <button
                     onClick={handleSearch}
                     disabled={!searchData.from || !searchData.to || !searchData.departure}
-                    className="w-full lg:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] mt-4 lg:mt-8"
+                    className="w-full lg:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] mt-4 lg:mt-8"
                   >
                     Поиск рейсов
                   </button>
@@ -771,7 +771,7 @@ const QazaqAirApp = () => {
                 proceedToPayment();
               }}
               disabled={!isValid}
-              className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 rounded-xl font-semibold text-base sm:text-lg hover:from-blue-700 hover:to-indigo-700 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] touch-manipulation shadow-lg"
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-xl font-semibold text-base sm:text-lg hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] touch-manipulation shadow-lg"
             >
               Перейти к оплате
             </button>
@@ -840,8 +840,8 @@ const QazaqAirApp = () => {
       return (
         <div className="min-h-screen bg-gray-50 flex items-center justify-center">
           <div className="max-w-md mx-auto bg-white rounded-2xl shadow-xl p-8 text-center">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="w-10 h-10 text-green-600" />
+            <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="w-10 h-10 text-blue-600" />
             </div>
             <h2 className="text-2xl font-bold text-gray-800 mb-4">Оплата прошла успешно!</h2>
             <p className="text-gray-600 mb-6">
@@ -916,14 +916,14 @@ const QazaqAirApp = () => {
                   </button>
                   <button
                     onClick={() => processPayment()}
-                    className="w-full bg-red-500 text-white py-4 px-6 rounded-xl font-semibold hover:bg-red-600 transition-colors flex items-center justify-center space-x-2"
+                    className="w-full bg-blue-500 text-white py-4 px-6 rounded-xl font-semibold hover:bg-blue-600 transition-colors flex items-center justify-center space-x-2"
                   >
                     <KaspiLogo />
                     <span className="text-sm">Kaspi</span>
                   </button>
                   <button
                     onClick={() => processPayment()}
-                    className="w-full bg-green-600 text-white py-4 px-6 rounded-xl font-semibold hover:bg-green-700 transition-colors flex items-center justify-center space-x-2"
+                    className="w-full bg-blue-600 text-white py-4 px-6 rounded-xl font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
                   >
                     <HalykLogo />
                     <span className="text-sm">Halyk</span>
@@ -1130,7 +1130,7 @@ const QazaqAirApp = () => {
                 <button
                   onClick={processPayment}
                   disabled={isProcessing || (!selectedSavedCard && (!showNewCardForm || !cardData.number || !cardData.expiry || !cardData.cvv || !cardData.name))}
-                  className="w-full bg-gradient-to-r from-green-600 to-green-700 text-white py-4 rounded-xl font-semibold text-lg hover:from-green-700 hover:to-green-800 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-blue-800 disabled:from-gray-400 disabled:to-gray-400 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
                 >
                   {isProcessing ? (
                     <div className="flex items-center justify-center">
