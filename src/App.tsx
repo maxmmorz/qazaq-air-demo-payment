@@ -1230,22 +1230,34 @@ const QazaqAirApp = () => {
                 </p>
               </div>
             </div>
-            <button
-              onClick={() => {
-                setCurrentStep("search");
-                setShowSuccess(false);
-                setSelectedFlight(null);
-                setPassengerData([]);
-                setSearchData((prev) => ({
-                  ...prev,
-                  departure: "",
-                  return: "",
-                }));
-              }}
-              className="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
-            >
-              Забронировать еще билет
-            </button>
+            <div className="space-y-3">
+              <button
+                onClick={() => {
+                  setCurrentStep("search");
+                  setShowSuccess(false);
+                  setSelectedFlight(null);
+                  setPassengerData([]);
+                  setSearchData((prev) => ({
+                    ...prev,
+                    departure: "",
+                    return: "",
+                  }));
+                }}
+                className="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Забронировать еще билет
+              </button>
+              <button
+                onClick={() => {
+                  setShowSuccess(false);
+                  setCurrentStep("payment");
+                }}
+                className="w-full bg-gray-100 text-gray-700 py-4 rounded-xl font-semibold hover:bg-gray-200 transition-colors flex items-center justify-center space-x-2"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                <span>Назад к оплате</span>
+              </button>
+            </div>
           </div>
         </div>
       );
