@@ -490,7 +490,7 @@ const QazaqAirApp = () => {
                   transition: `all 0.5s ease-out ${index * 0.1}s`
                 }}
                 onClick={(e) => {
-                  if (window.innerWidth < 640 && !e.target.closest('button')) {
+                  if (window.innerWidth < 640 && !(e.target as Element).closest('button')) {
                     if (navigator.vibrate) {
                       navigator.vibrate(30);
                     }
@@ -764,7 +764,7 @@ const QazaqAirApp = () => {
           {/* Continue Button - Mobile Optimized */}
           <div className="mt-6 sm:mt-8 sticky bottom-0 sm:static bg-gray-50 sm:bg-transparent pt-4 sm:pt-0 -mx-4 sm:mx-0 px-4 sm:px-0 pb-4 sm:pb-0">
             <button
-              onClick={(e) => {
+              onClick={() => {
                 if (navigator.vibrate) {
                   navigator.vibrate(50);
                 }
